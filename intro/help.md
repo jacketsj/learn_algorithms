@@ -11,3 +11,5 @@ Then see if you can change it so it outputs the same text as running `intro_solu
 Note that in general,
 you can compile all your programs (within this project) the same way,
 by replacing `intro` with the name of the program.
+
+Alternatively, you can use an online IDE such as [repl.it](https://repl.it/languages/cpp11).
