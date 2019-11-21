@@ -12,4 +12,8 @@ int main()
 	cout << endl;
 
 	// TODO: Output the odd numbers in the inclusive range [-5,11], followied by a newline
+	// Solution: Use a for loop simiarly to before, but increment by 2 each time
+	for (int i = -5; i <= 11; i+=2)
+		cout << i << ' ';
+	cout << endl;
 }
