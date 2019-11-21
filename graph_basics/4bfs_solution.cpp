@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -46,10 +47,9 @@ bool within_d(const vector<vector<int>> &adj_list, int u, int v, int d)
 				distance[next] = distance[cur] + 1;
 			}
 		}
-		
-		// is the distance to v small enough?
-		return distance[v] <= d;
 	}
+	// is the distance to v small enough?
+	return distance[v] >= 0 && distance[v] <= d;
 }
 
 void check_within_d(const vector<vector<int>> &adj, int u, int v, int d)
@@ -64,9 +64,7 @@ void check_within_d(const vector<vector<int>> &adj, int u, int v, int d)
 // determine if v and u are connected
 bool connected(const vector<vector<int>> &adj_list, int u, int v)
 {
-	// TODO complete this function.
-	// Hint: This should only take one line. Use within_d!
-	return false; // stub
+	return within_d(adj_list,u,v,adj_list.size());
 }
 
 void check_connected(const vector<vector<int>> &adj, int u, int v)
