@@ -2,6 +2,8 @@
 // Let's use the STL queue!
 #include <queue>
 
+using namespace std;
+
 
 // Given two queues of integers in ascending order,
 // produce a new queue containing all the integers

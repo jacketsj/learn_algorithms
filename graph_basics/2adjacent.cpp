@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 // Given an adjacency list and a vertex v,
 // find the number of vertices adjacent to v
 int adjacent_count(const vector<vector<int>> &adj_list, int v)

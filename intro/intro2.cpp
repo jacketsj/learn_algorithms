@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 
 // Count the numbers in the range [l,r] that are divisble by k
 // Uses recursion to break down the problem

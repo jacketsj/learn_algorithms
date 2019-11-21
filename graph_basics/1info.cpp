@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main()
 {
 	// There are two ways to represent a graph: Adjacency lists and Adjacency matrices

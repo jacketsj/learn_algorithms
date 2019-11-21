@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 // Let's implement a stack!
 // Let's do it with a vector
 

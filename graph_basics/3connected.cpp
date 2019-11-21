@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 // Given an adjacency list, two vertices v and u,
 // and a distance d
 // determine if v and u are at most d edges away from each other
@@ -12,7 +14,7 @@ bool within_d(const vector<vector<int>> &adj_list, int u, int v, int d)
 	return false; // stub
 }
 
-void check_within_d(const vector<vector<int>> &adj, u, v, d)
+void check_within_d(const vector<vector<int>> &adj, int u, int v, int d)
 {
 	cout << "Are vertices " << u << " and " << v
 		<< " at most " << d << " edges apart? "
@@ -29,7 +31,7 @@ bool connected(const vector<vector<int>> &adj_list, int u, int v)
 	return false; // stub
 }
 
-void check_connected(const vector<vector<int>> &adj, u, v)
+void check_connected(const vector<vector<int>> &adj, int u, int v)
 {
 	cout << "Are vertices " << u << " and " << v << " connected? "
 		<< connected(adj,u,v) << endl;

@@ -3,30 +3,53 @@
 
 using namespace std;
 
+// We're going to implement the same functions as last time,
+// but this time let's improve the runtime to O(n).
+// How do we do this?
+// Let's use breadth-first search!
+
 // Given an adjacency list, two vertices v and u,
 // and a distance d
-// determine if v and u are at most d edges away from each other
+// determine if v and u are at most d edges away from each other,
+// using at most O(n) time and space
 bool within_d(const vector<vector<int>> &adj_list, int u, int v, int d)
 {
-	// TODO complete this function. Don't worry about runtime.
-	// Tip: Use recursion, and do something similar to close_by.
+	// TODO complete this function.
+	// Tip: Use a queue and a distance array
 
-	// Solution: Use recursion to essentially create d for loops,
-	// 	similarly to close_by
+	// Solution: BFS
+	// Look at every node in order of distance from u
 	
-	// found it!
-	if (u == v)
-		return true;
+	// array of distances from u
+	// -1 means unseen (infinite distance)
+	// a vertex can be 'seen' from any visited vertex
+	vector<int> distance(adj_list.size(),-1);
+	distance[u] = 0;
 
-	// base case: d==0 (no more edges)
-	if (d == 0)
-		return false;
+	queue<int> todo; // vertices we need to look at
+	todo.push(u);
 
-	// recurse on adjacent edges to see if any of the sub-searches find v
-	bool res = false;
-	for (int w : adj_list[u])
-		res = res || within_d(adj_list,w,v,d-1);
-	return res;
+	// while we still have vertices to look at
+	while (!todo.empty())
+	{
+		// choose the first (closest) one to look at
+		int cur = todo.front(); todo.pop();
+
+		// for every adjacent node to cur
+		for (int next : adj_list[cur])
+		{
+			// if the node hasn't been seen before
+			if (distance[next] == -1)
+			{
+				// visit the adjacent node
+				todo.push(next);
+				distance[next] = distance[cur] + 1;
+			}
+		}
+		
+		// is the distance to v small enough?
+		return distance[v] <= d;
+	}
 }
 
 void check_within_d(const vector<vector<int>> &adj, int u, int v, int d)
@@ -43,8 +66,7 @@ bool connected(const vector<vector<int>> &adj_list, int u, int v)
 {
 	// TODO complete this function.
 	// Hint: This should only take one line. Use within_d!
-	// Solution: If two vertices are connected, the distance between them is at most n
-	return within_d(adj_list,u,v,adj_list.size());
+	return false; // stub
 }
 
 void check_connected(const vector<vector<int>> &adj, int u, int v)

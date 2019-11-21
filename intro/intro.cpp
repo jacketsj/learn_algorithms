@@ -1,6 +1,8 @@
 // Include this so that we can use IO
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
 	// Output "Hello World!" and a newline into standard out

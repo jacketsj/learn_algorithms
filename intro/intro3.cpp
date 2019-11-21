@@ -3,6 +3,8 @@
 // A vector is a variable-length array, similar to an ArrayList in Java
 #include <vector>
 
+using namespace std;
+
 // Sum all of the numbers in the given array
 int sum_of_numbers(const vector<int> &arr)
 {
