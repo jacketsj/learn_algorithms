@@ -43,53 +43,7 @@ int find_distance(const vector<vector<char>> &grid, char a, char b)
 	// TODO complete this function.
 	// Tip: Start from your solution to BFS within_d from the previous part
 
-	// Solution: BFS
-	
-	// grid of distances from a
-	// -1 means unseen (infinite distance)
-	// a vertex can be 'seen' from any visited vertex
-	vector<vector<int>> distance(grid.size(),vector<int>(grid[0].size(),-1));
-	distance[a_loc.x][a_loc.y] = 0;
-
-	queue<position> todo; // grid locations we need to look at
-	todo.push(a_loc);
-
-	// while we still have grid locations to look at
-	while (!todo.empty())
-	{
-		// choose the first (closest) one to look at
-		position cur = todo.front(); todo.pop();
-
-		// what are the adjacent nodes in a grid?
-		// They're the
-		vector<position> adj;
-		if (cur.x - 1 >= 0)
-			adj.push_back(position(cur.x-1,cur.y));
-		if (cur.y - 1 >= 0)
-			adj.push_back(position(cur.x,cur.y-1));
-		if (cur.x + 1 < grid.size())
-			adj.push_back(position(cur.x+1,cur.y));
-		if (cur.y + 1 < grid[0].size())
-			adj.push_back(position(cur.x,cur.y+1));
-
-		// for every adjacent node to cur
-		for (position next : adj)
-		{
-			// only proceed if the position isn't blocked
-			if (grid[cur.x][cur.y] == '#')
-				continue; // blocked, so skip this position
-
-			// if the node hasn't been seen before
-			if (distance[next.x][next.y] == -1)
-			{
-				// visit the adjacent node
-				todo.push(next);
-				distance[next.x][next.y] = distance[cur.x][cur.y] + 1;
-			}
-		}
-	}
-	
-	return distance[b_loc.x][b_loc.y];
+	return -1;
 }
 
 int main()
